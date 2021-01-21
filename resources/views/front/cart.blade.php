@@ -54,8 +54,23 @@
                                             <div class="col-md-7 col-lg-9 col-xl-9">
                                                 <div class="d-flex justify-content-between">
                                                     <div>
-                                                        <h5>{{ $product->name }}</h5>
+                                                        <h5><a href={{ url('/product/' . $product->id) }}>{{ $product->name }}</a></h5>
                                                         <p class="mb-3 text-muted text-uppercase small">Kategoria: {{ $product->category->name }}</p>
+
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm table-borderless mb-0">
+                                                                <tbody>
+                                                                    @foreach($product->attributes as $attribute)
+                                                                        @if($attribute->key != 'price')
+                                                                            <tr>
+                                                                                <th class="pl-0 w-25" scope="row"><strong>{{ $attribute->name }}</strong></th>
+                                                                                <td>{{ $attribute->pivot->value }} {{ $units[$attribute->unit] }}</td>
+                                                                            </tr>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
 
                                                     <form method='POST' action={{ url('addToCart') }}>

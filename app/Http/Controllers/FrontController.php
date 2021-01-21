@@ -97,7 +97,8 @@ class FrontController extends Controller
             'categories'    => $categories,
             'count'         => count($cart),
             'products'      => $products,
-            'cart'          => $cart
+            'cart'          => $cart,
+            'units'         => Main::UNITS
         ));
     }
 

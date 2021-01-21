@@ -1,5 +1,6 @@
 <div class="col-lg-3">
-    <h1 class="my-4">Spożywczak</h1>
+    <h1 class="my-4">Spożywczak
+    </h1>
     <div class="list-group">
         @foreach ($categories as $key => $category)
             <p>
